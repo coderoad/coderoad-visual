@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <title>CodeRoad Tutorial Visualization</title>
+</head>
+
+<body>
+  <header class="header">
+    <img class="header-img" src="img/logo.jpg" />
+    <h1 class="header-text">Code Road</h1>
+  </header>
+
+  <div class="title">
+    Visualization of a Code Road tutorial repo
+    <br />
+    Click to see more info
+  </div>
+
+  <main class="main">
+    <div class="flowchart">
+      <div class="flow flow-main-repo">Learn NPM Repo</div>
+      <div class="flow branch branch-master">master</div>
+      <div class="flow branch branch-version">v0.1.0</div>
+      <div class="flow file file-project">Project Files</div>
+      <div class="flow file file-coderoad">CODEROAD.md</div>
+      <div class="flow file file-config">config.json</div>
+      <div class="flow repo repo-tutorials">Tutorials Repo</div>
+      <div class="flow repo repo-coderoad">CodeRoad Repo</div>
+    </div>
+
+    <div class="column-wrap">
+      <div class="column column-1">
+        <div class="commit-img-group commit-img-group-1">
+          <img class="commit-img" src="img/init_result.jpg" />
+        </div>
+        <div class="commit-img-group commit-img-group-2">
+          <img class="commit-img" src="img/1.1_result.jpg" />
+          <img class="commit-img" src="img/test-1.png" />
+        </div>
+        <div class="commit-img-group commit-img-group-3">
+          <img class="commit-img" src="img/1.1-solution_result.jpg" />
+          <img class="commit-img" src="img/solution-1.png" />
+        </div>
+        <div class="commit-img-group commit-img-group-4">
+          <img class="commit-img" src="img/1.2_result.jpg" />
+          <img class="commit-img" src="img/test-2.png" />
+        </div>
+        <div class="commit-img-group commit-img-group-5">
+          <img class="commit-img" src="img/1.2-solution_result.jpg" />
+          <img class="commit-img" src="img/solution-2.png" />
+        </div>
+        <div class="commit-img-group commit-img-group-6">
+          <img class="commit-img" src="img/1.3_result.jpg" />
+          <img class="commit-img" src="img/test-3.png" />
+        </div>
+        <div class="commit-img-group commit-img-group-7">
+          <img class="commit-img" src="img/1.3-solution_result.jpg" />
+          <img class="commit-img" src="img/solution-3.png" />
+        </div>
+      </div>
+      <div class="column column-2">
+        <div class="markdown-filename">
+          <a
+            href="https://github.com/coderoad/fcc-learn-npm/blob/master/CODEROAD.md"
+            target="_blank"
+            >COADROAD.md</a
+          >
+        </div>
+        <pre class="markdown-pre">
+<div class="lesson-1-markdown"># Learn NPM package json</div>
+
+<div class="lesson-1-markdown">> The Node Package Manager (NPM) is a command-line tool used by developers to share and control modules (or packages) of JavaScript code written for use with Node.js.</div>
+
+```config
+config:
+  testRunner:
+    command: npm run programmatic-test
+  repo:
+    uri: https://github.com/coderoad/fcc-learn-npm
+    branch: v0.1.0
+  dependencies:
+    - name: node
+      version: ^10
+```
+
+<div class="lesson-1-markdown lesson-2-markdown">## Intro</div>
+
+<div class="lesson-1-markdown">> Introduction to the package.json</div>
+
+<div class="lesson-2-markdown">When starting a new project, NPM generates a package.json file. This file lists the package dependencies for your project. Since NPM packages are regularly updated, the package.json file allows you to set specific version numbers for each dependency. This ensures that updates to a package don't break your project.
+
+NPM saves packages in a folder named node_modules. These packages can be installed in two ways:
+
+- globally in a root node_modules folder, accessible by all projects.
+- locally within a project's own node_modules folder, accessible only to that project.
+
+Most developers prefer to install packages local to each project to create a separation between the dependencies of different projects.
+
+The `package.json` file is the center of any Node.js project or NPM package. It stores information about your project, similar to how the &lt;head&gt; section of an HTML document describes the content of a webpage. It consists of a single JSON object where information is stored in key-value pairs. There are only two required fields; "name" and "version", but it’s good practice to provide additional information about your project that could be useful to future users or maintainers.
+If you look at the file tree of your project, you will find the package.json file on the top level of the tree. This is the file that you will be improving in the next couple of challenges.</div>
+
+<div class="lesson-1-markdown lesson-3-markdown">## Author</div>
+
+<div class="lesson-1-markdown">> Package.json author</div>
+
+<div class="lesson-3-markdown">One of the most common pieces of information in this file is the `author` field. It specifies who created the project, and can consist of a string or an object with contact or other details. An object is recommended for bigger projects, but a simple string like the following example will do for this project.
+
+```json
+"author": "Jane Doe",
+```</div>
+
+### Step 1
+
+```config
+setup:
+  files:
+    - package.json
+  commits:
+<div class="commit-1-markdown">    - '26e502d'</div>
+<div class="commit-2-markdown">    - 'e39ab72'</div>
+  commands:
+    - npm install
+solution:
+  files:
+    - package.json
+  commits:
+<div class="commit-3-markdown">    - '72fa9de'</div>
+```
+
+<div class="lesson-3-markdown">Add your name as the `author` of the project in the package.json file.</div>
+
+<div class="lesson-3-markdown">**Note:** Remember that you’re writing JSON, so all field names must use double-quotes (") and be separated with a comma (,).</div>
+
+<div class="lesson-1-markdown lesson-4-markdown">## Description</div>
+
+<div class="lesson-1-markdown">> Package.json description</div>
+
+<div class="lesson-4-markdown">The next part of a good package.json file is the `description` field; where a short, but informative description about your project belongs.
+If you some day plan to publish a package to NPM, this is the string that should sell your idea to the user when they decide whether to install your package or not. However, that’s not the only use case for the description, it’s a great way to summarize what a project does. It’s just as important in any Node.js project to help other developers, future maintainers or even your future self understand the project quickly.
+
+Regardless of what you plan for your project, a description is definitely recommended.
+
+Here's an example:
+
+```json
+"description": "A project that does something awesome",
+```</div>
+
+### Step 1
+
+```config
+setup:
+  files:
+    - package.json
+  commits:
+<div class="commit-4-markdown">    - '64bd78f'</div>
+solution:
+  files:
+    - package.json
+  commits:
+<div class="commit-5-markdown">    - '7888392'</div>
+```
+
+<div class="lesson-4-markdown">Add a `description` to the package.json file of your project.</div>
+
+<div class="lesson-4-markdown">**Note:** Remember to use double-quotes for field-names (") and commas (,) to separate fields.</div>
+
+<div class="lesson-1-markdown lesson-5-markdown">## Keywords</div>
+
+<div class="lesson-1-markdown">> Package.json keywords</div>
+
+<div class="lesson-5-markdown">The `keywords` field is where you can describe your project using related keywords.
+
+Here's an example:
+
+```json
+"keywords": [ "descriptive", "related", "words" ],
+```
+
+As you can see, this field is structured as an array of double-quoted strings.</div>
+
+### Step 1
+
+```config
+setup:
+  files:
+    - package.json
+  commits:
+<div class="commit-6-markdown">    - '54540f6'</div>
+solution:
+  files:
+    - package.json
+  commits:
+<div class="commit-7-markdown">    - '803ab94'</div>
+```
+
+<div class="lesson-5-markdown">Add an array of suitable strings to the `keywords` field in the package.json file of your project.</div>
+
+<div class="lesson-5-markdown">One of the keywords should be "freecodecamp".</div>
+        </pre>
+      </div>
+      <div class="column column-3">
+        <img class="lesson-img" src="img/overview_result.jpg" />
+        <img class="lesson-img" src="img/intro_result.jpg" />
+        <img class="lesson-img" src="img/author_result.jpg" />
+        <img
+          class="lesson-img description-img"
+          src="img/description_result.jpg"
+        />
+        <img class="lesson-img keywords-img" src="img/keywords_result.jpg" />
+      </div>
+    </div>
+    <div class="tip-wrap">
+      <div class="tip"></div>
+      <span class="close-tip-btn">x</span>
+    </div>
+  </main>
+
+  <script type="text/javascript" src="index.js"></script>
+</body>
