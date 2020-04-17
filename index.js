@@ -1,48 +1,4 @@
-// tips
-const tipWrap = document.querySelectorAll('.tip-wrap')[0]
-const tipElement = document.querySelectorAll('.tip')[0]
-const closeTipBtn = document.querySelectorAll('.close-tip-btn')[0]
-
-// <a href="https://github.com/coderoad/fcc-learn-npm" target="_blank"
-
-const tips = {
-  flowchartTips: [
-    'A repo for a tutorial consists of two branches. A master branch and a version branch.', // npm repo
-    'The tutorials repo has a list of all the config.json files from each repo.', // tutorials repo
-    'The coderoad repo holds all the vscode extension code. It will create all the available tutorials from the list of config.json files.', // coderoad repo
-    'You will create a CODEROAD.md file on the master branch (example below). It will be used to generate the config.json file.', // master branch
-    'The version branch (e.g. v0.1.0) hold project files for users, testing files, and coderoad files.', // version branch
-    'The important part of the project files are the commits used to create them. An individual lesson should have a commit for a test and another for a solution to that test. Click on the commits below to see where they fit in the markdown file.', // project files
-    'This is a markdown file you will create to give your lessons instructions.', // coderoad file
-    "A script is used to create this file. And it is linked to from the tutorials repo. It's what the coderoad extension uses to generate the tutorials", // config file
-  ],
-  commitTips: [
-    'Initial commit to the v0.1.0 branch. It includes the Code Road set up code. Commit hashes added in the setup area will be loaded when the lesson is loaded.',
-    'A commit with a test goes in the "setup" to run against the users code.',
-    'A commit for Code Road to run against the tests.',
-    'A commit with a test for a new lesson. Added in the "setup" area.',
-    'A commit with a solution for this lesson added to the "solution" area.',
-    'Another test.',
-    'Another solution.',
-  ],
-  lessonTips: [
-    'Overview of the tutorial. Displays a list of the titles and a brief decription of each.',
-    'Optional introduction page has no tests. It consists of a title, a snippet for the overview page, and text.',
-    'First lesson with a test.',
-    'You can add more steps for a single set of instructions.',
-    'Last lesson.',
-  ],
-}
-
-closeTipBtn.addEventListener('click', () => {
-  // remove flowchart highlighting
-  flowchartElements.forEach(item => {
-    item.classList.remove('highlight-flow-item')
-  })
-
-  tipWrap.style.visibility = 'hidden'
-})
-
+/* GLOBAL FUNCTIONS */
 function updateTip(key, index) {
   let color
 
@@ -59,7 +15,51 @@ function updateTip(key, index) {
   tipElement.innerHTML = tips[key][index]
 }
 
-// flowchart highlighting
+/* TIPS */
+const tips = {
+  flowchartTips: [
+    'A repo for a tutorial consists of two branches. A master branch and a version branch.',
+    'The tutorials repo has a list of config.json files, one from each tutorial.',
+    'The Code Road repo holds all the vscode extension code. It uses the config.json files from the tutorials repo to create the lessons as shown below. Click them to see what markdown it is using.',
+    'You will create a CODEROAD.md file on the master branch (example below).',
+    'The version branch (e.g. v0.1.0) holds Code Road set up code, code to start users off with, and all the tests and solutions.',
+    'The important part of the project files are the commits used to create them. An individual lesson should have a commit for a test and another for a solution to that test. Click on the commits below to see where they fit in the markdown file.',
+    'The markdown file you create describes the structure of the lessons. A script will be used to create the config.json file from it.',
+    'This file also lives on the master branch. It will be added to the tutorials repo.',
+  ],
+  commitTips: [
+    'Initial commit to the v0.1.0 branch. It includes the Code Road set up code. Commit hashes added in the setup area will be loaded when the lesson is loaded.',
+    'A commit with a test goes in the "setup" to run against the users code.',
+    'A solution commit for Code Road to run against the tests.',
+    'A commit with a test for a new lesson. Added in the setup area.',
+    'A commit with a solution for this lesson added to the solution area.',
+    'Test commit for a new lesson.',
+    'Solution commit for this lesson.',
+  ],
+  lessonTips: [
+    'Overview of the tutorial. Displays a list of the titles and a brief decription of each. A single "#" in the markdown denotes this lesson.',
+    'Optional introduction page has no tests. All the other lessons begin with "##" in the markdown.',
+    'First lesson with a test. "### Step" inside a lesson is where you describe tests, solutions, command scripts and set up code.',
+    'You can use markdown in your instructions for code blocks and keywords.',
+    `It isn't shown here, but you can add multiple steps for a single set of instructions by just adding another "### Step" in the markdown.`,
+  ],
+}
+
+const tipWrap = document.querySelectorAll('.tip-wrap')[0]
+const tipElement = document.querySelectorAll('.tip')[0]
+const closeTipBtn = document.querySelectorAll('.close-tip-btn')[0]
+
+closeTipBtn.addEventListener('click', () => {
+  // remove flowchart highlighting
+  flowchartElements.forEach(item => {
+    item.classList.remove('highlight-flow-item')
+  })
+
+  // hide tip
+  tipWrap.style.visibility = 'hidden'
+})
+
+/* FLOWCHART HIGHLIGHTING */
 const flowchartElements = [
   document.querySelectorAll('.flow-main-repo')[0],
   document.querySelectorAll('.repo-tutorials')[0],
@@ -71,6 +71,7 @@ const flowchartElements = [
   document.querySelectorAll('.file-config')[0],
 ]
 
+// add click events for flowchart elements
 flowchartElements.forEach((el, index) => {
   el.addEventListener('click', () => {
     // update tip
@@ -114,7 +115,7 @@ flowchartElements.forEach((el, index) => {
   })
 })
 
-// lesson highlighting
+/* LESSON HIGHLIGHTING */
 const lessonImages = document.querySelectorAll('.lesson-img')
 const markdownLessonDivs = [
   document.querySelectorAll('.lesson-1-markdown'),
@@ -127,6 +128,7 @@ const markdownLessonDivs = [
 let lessonImgHighlighted = false
 let highlightedLessonTextIndex = false
 
+// add click events for lesson images
 lessonImages.forEach((img, index) => {
   img.addEventListener('click', () => {
     // update tip
@@ -160,7 +162,7 @@ lessonImages.forEach((img, index) => {
   })
 })
 
-// Commit highlighting
+/* COMMIT HIGHLIGHTING */
 const commitImgGroup = document.querySelectorAll('.commit-img-group')
 const markdownCommitDivs = [
   document.querySelectorAll('.commit-1-markdown'),
@@ -175,6 +177,7 @@ const markdownCommitDivs = [
 let commitImgHighlighted = false
 let highlightedCommitTextIndex = false
 
+// add click events for commit images
 commitImgGroup.forEach((img, index) => {
   img.addEventListener('click', () => {
     // update tip
