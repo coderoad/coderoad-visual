@@ -38,7 +38,7 @@ const tips = {
   ],
   lessonTips: [
     'Overview of the tutorial. Displays a list of the titles and a brief decription of each. A single "#" in the markdown denotes this lesson.',
-    'Optional introduction page has no tests. All the other lessons begin with "##" in the markdown.',
+    'Optional introduction page has no tests. All regular challenges begin with "##" in the markdown.',
     'First lesson with a test. "### Step" inside a lesson is where you describe tests, solutions, command scripts and set up code.',
     'You can use markdown in your instructions for code blocks and keywords.',
     `It isn't shown here, but you can add multiple steps for a single set of instructions by just adding another "### Step" in the markdown.`,
